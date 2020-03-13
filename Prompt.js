@@ -1,4 +1,3 @@
-
 class Prompt {
     constructor(text, heading, choices) {
         this.text = text;
