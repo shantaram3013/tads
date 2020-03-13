@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<!-- fonts used:
+    Perfect DOS VGA 437 "cp437.ttf" https://github.com/CP437/PerfectDOSVGA437
+-->
+
+<head>
+    <title>The Anti-Dragonscourge</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <script>
+        function init() {
+            document.getElementById("beginBtn").addEventListener("click", begin);
+            document.getElementById("mainText").style.textAlign = "center";
+            document.getElementById("settingsBtn").addEventListener("click", settingsMenu);
+            document.getElementById("textSpeed").selectedIndex = 3;
+            document.getElementById("soundEnabled").checked = true;
+        }
+
+        function begin() {
+            saveSettings();
+            let link = document.createElement("a");
+            link.href = "game.html";
+            link.click();
+        }
+
+        function mainMenu() {
+            document.getElementById("beginBtn").style.display = "unset";
+            document.getElementById("settingsBtn").style.display = "unset";
+            document.getElementById("mainText").style.display = "none";
+            document.getElementById("credits").style.display = "unset";
+        }
+
+        function settingsMenu() {
+            document.getElementById("beginBtn").style.display = "none";
+            document.getElementById("settingsBtn").style.display = "none";
+            document.getElementById("credits").style.display = "none";
+            document.getElementById("mainText").style.display = "unset";
+        }
+
+        function saveSettings() {
+            switch (document.getElementById("textSpeed").selectedIndex) {
+                case 0: localStorage.averageDelay = 80;
+                        localStorage.variance = 40;
+                        break;
+                case 1: localStorage.averageDelay = 60;
+                        localStorage.variance = 30;
+                        break;
+                case 2: localStorage.averageDelay = 40;
+                        localStorage.variance = 20;
+                        break;
+                case 3: localStorage.averageDelay = 25;
+                        localStorage.variance = 12;
+                        break;
+                default: break;
+            }
+            if (document.getElementById("soundEnabled").checked) {
+                localStorage.sound = true;
+                console.log("Sound enabled.");
+            }
+            else {
+                localStorage.sound = false;
+                console.log("Sound disabled.");
+            }
+        }
+
+        function credits() {
+            alert("Uses IBM CP437 font by zeh https://github.com/CP437/PerfectDOSVGA437\n" +
+            "Uses js-typewriter library \nby Mark E Haase under the BSD license https://github.com/mehaase/js-typewriter\n" +
+            "snip sound effect by _def https://freesound.org/people/_def/sounds/346523/\n" +
+            "Made by shantaram for the Text-Only Jam, Dec 2019");
+        }
+
+        window.onload = init;
+    </script>
+    
+    <div class="center" id="mainDiv">
+
+        <div style="font-size: 40px; text-align: center;" id="heading">
+            The (anti)-Dragonscourge
+        </div>
+
+        <div id="choiceWrapper" style="text-align: center; margin-top: 100px;">
+            <div class="buttonWrapper"><button id="beginBtn">Begin</button>
+            </div>
+            
+            <div class="buttonWrapper"><button id="settingsBtn">Adjust settings</button>
+            </div>
+
+            <div class="buttonWrapper"> <button onclick="credits()" id="credits"> Credits </button>
+            </div>
+        </div>
+
+        <div id="mainText" style="display: none;">
+
+            <form name="Speed">
+                text speed: (dropdown)
+                <select id="textSpeed">
+                    <option value="Slow">Slow</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Fast">Fast</option>
+                    <option value="Fastest">Fastest</option>
+                </select>
+            </form>
+
+            <form name="SoundEnable"> enable sound?
+                <input type="radio" id="soundEnabled" name="Sound"> Yes
+                <input type="radio" id="soundDisabled" name="Sound"> No
+            </form>
+
+            <button id="submit" onclick="mainMenu(); saveSettings()"> Return </button>
+        </div>
+
+    </div>
+</body>
+</html>

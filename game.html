@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<!-- fonts used:
+    Perfect DOS VGA 437 "cp437.ttf" https://github.com/CP437/PerfectDOSVGA437
+-->
+
+<head>
+    <title>The Anti-Dragonscourge</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8"/>
+</head>
+
+<body>
+    <script type="text/javascript">
+        let game = {};
+        game.player = {};
+        game.player.score = {};
+    </script>
+
+    <script src="Prompt.js">
+    </script>
+
+    <script src="Choice.js">
+    </script>
+
+    <script src="Audio.js">
+    </script>
+
+    <script src="data.js">
+    </script>
+
+    <script src="typewriter.js">
+    </script>
+    
+    <script src="utils.js">
+    </script>
+
+    <script src="main.js">
+    </script>
+
+    <div class="center" style="z-index: 1" id="mainDiv">
+
+        <div id="heading">
+        </div>
+
+        <div id="mainText">
+        </div>
+
+        <div id="choiceWrapper">
+        </div>
+
+    </div>
+
+    <audio display="none" preload="auto" src="soundtrack.mp3" id="st"> </audio>
+    <audio display="none" preload="auto" src="sfx.wav" id="sfx"> </audio>
+</body>
+
+</html>

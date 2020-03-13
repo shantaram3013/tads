@@ -1,0 +1,145 @@
+/************************** Variables **************************/
+
+@font-face {
+    font-family: cp437;
+    src: url('./cp437.ttf');
+}
+
+* {
+    --button-font: 'cp437';
+    --header-font: 'cp437';
+    --header-color: #007cdf;
+    --text-font: 'cp437';
+    --text-color: #f5f4f0;
+    --button-color: #00ff00;
+    --button-darker: lime;
+    --element-width: 60%;
+    --heading-font-size: 32px;
+    --button-font-size: 16px;
+    --mainText-font-size: 18px;
+}
+
+/************************ Global stuff ************************/
+
+* {
+    background: #121212;
+    line-height: 1.0;
+    scrollbar-color: lime #121212;
+}
+
+::-webkit-scrollbar-track {
+    background: lime;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #121212;
+}
+
+body {
+    font-size: 18px;
+    font-family: var(--text-font);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    overflow: scroll;
+}
+
+select {
+    color: lime;
+    font-family: var(--text-font);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-size: var(--button-font-size);
+    /* 18 */
+    padding: 8px;
+    margin: 4px;
+    border: 2px dashed #00ff00;
+    outline: 0;
+}
+
+form {
+    margin: 20px;
+}
+/************************ Text classes ************************/
+
+.center {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#heading {
+    font-size: var(--heading-font-size);
+    /* 36 */
+    color: var(--header-color);
+    font-family: var(--header-font);
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    text-align: left;
+    width: var(--element-width);
+}
+
+#mainText {
+    font-size: var(--mainText-font-size);
+    /* 22 */
+    margin-bottom: 36px;
+    color: var(--text-color);
+    width: var(--element-width);
+    text-align: left;
+    min-height: var(--mainText-font-size);
+}
+
+/************************** buttons ***************************/
+
+button {
+    color: var(--button-color);
+    border: 2px dashed var(--button-color);
+    font-family: var(--button-font);
+    font-size: var(--button-font-size);
+    /* 18 */
+    padding: 8px;
+    margin: 4px;
+}
+
+#choiceWrapper {
+    width: var(--element-width);
+    text-align: left;
+}
+
+button:hover {
+    border: 2px solid;
+    color: var(--button-darker);
+}
+
+button:active {
+    transform: translate(0px, 4px);
+}
+
+button::-moz-focus-inner {
+    border: 0;
+    outline: 0;
+    box-shadow: none !important;
+}
+
+.buttonWrapper {
+    margin: 10px;
+}
+
+/************************** MOBILE ****************************/
+
+@media only screen and (max-width: 700px) {
+    * {
+        --element-width: 85%;
+        --mainText-font-size: 18px;
+        --button-font-size: 18px;
+        --heading-font-size: 28px;
+    }
+}
+
+/************************** the end ***************************/
